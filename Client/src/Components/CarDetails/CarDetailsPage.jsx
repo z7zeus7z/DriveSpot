@@ -4,7 +4,7 @@ import style from '../../Style/CarDetails.module.css';
 import CarCard from '../CarCard/CarCard';
 import Footer from '../Footer/Footer';
 import Filters from '../Cars/Filters';
-
+const API_URL = import.meta.env.VITE_API_URL;
 const CarDetailsPage = ({ cars }) => {
   const { id } = useParams();
   const car = cars.find(c => c._id === id);
@@ -12,15 +12,14 @@ const CarDetailsPage = ({ cars }) => {
   const [selectedImage, setSelectedImage] = useState('');
   const [isFullscreen, setIsFullscreen] = useState(false);
 
-  // ✅ Set the first image once car data is available
   useEffect(() => {
     if (car && car.images && car.images.length > 0) {
-      setSelectedImage(`http://localhost:5000/uploads/cars/${car.images[0]}`);
+      setSelectedImage(`${API_URL}/uploads/cars/${car.images[0]}`);
     }
   }, [car]);
 
   const handleImageClick = (img) => {
-    setSelectedImage(`http://localhost:5000/uploads/cars/${img}`);
+    setSelectedImage(`${API_URL}/uploads/cars/${img}`);
   };
 
   const openFullscreen = () => setIsFullscreen(true);
@@ -56,7 +55,7 @@ const CarDetailsPage = ({ cars }) => {
                     style={{ cursor: 'pointer' }}
                   >
                     <img
-                      src={`http://localhost:5000/uploads/cars/${img}`}
+                      src={`${API_URL}/uploads/cars/${img}`}
                       alt={car.model}
                     />
                   </div>

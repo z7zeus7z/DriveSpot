@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import style from '../../Style/AdminDash.module.css';
-
+const API_URL = import.meta.env.VITE_API_URL;
 const ManageCars = ({ setCars }) => {
   const [cars, setLocalCars] = useState([]);
 
@@ -8,7 +8,7 @@ const ManageCars = ({ setCars }) => {
   useEffect(() => {
     const fetchCars = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/cars');
+        const res = await fetch(`${API_URL}/api/cars`);
         const data = await res.json();
         setLocalCars(data);
       } catch (err) {
@@ -21,12 +21,12 @@ const ManageCars = ({ setCars }) => {
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this car?')) return;
     try {
-      const res = await fetch(`http://localhost:5000/api/cars/${id}`, {
-        method: 'DELETE',
-      });
+      const res = await fetch(`${API_URL}/api/cars/${id}`, {
+  method: 'DELETE',
+});
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || 'Failed to delete car');
-      // Update UI
+      
       const updatedCars = cars.filter((car) => car._id !== id);
       setLocalCars(updatedCars);
       setCars(updatedCars);
@@ -58,11 +58,11 @@ const ManageCars = ({ setCars }) => {
             {cars.map((car) => (
               <tr key={car._id}>
                 <td>
-                  <img
-                    src={`http://localhost:5000/uploads/cars/${car.images[0]}`}
-                    alt={car.model}
-                    width="80"
-                  />
+                 <img
+  src={`${API_URL}/uploads/cars/${car.images[0]}`}
+  alt={car.model}
+  width="80"
+/>
                 </td>
                 <td>{car.make}</td>
                 <td>{car.model}</td>

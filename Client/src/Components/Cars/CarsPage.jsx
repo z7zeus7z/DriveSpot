@@ -13,7 +13,6 @@ const CarsPage = ({ cars }) => {
   const handleFilterChange = (filters) => {
     const { price, types, capacities } = filters;
 
-    // If no filters are selected, show all cars
     const noFiltersSelected =
       (types.length === 0) && (capacities.length === 0) && (price === 200);
 
@@ -33,7 +32,6 @@ const CarsPage = ({ cars }) => {
     setFilteredCars(result);
   };
 
-  // Update if cars prop changes
   useEffect(() => {
     setFilteredCars(cars);
   }, [cars]);

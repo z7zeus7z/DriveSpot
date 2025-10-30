@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import style from '../../Style/AdminDash.module.css';
-
+const API_URL = import.meta.env.VITE_API_URL;
 const ListCar = ({ setCars }) => {
   const [formData, setFormData] = useState({
     make: '',
@@ -42,11 +42,10 @@ const ListCar = ({ setCars }) => {
       formData.images.forEach((img) => {
         form.append('images', img);
       });
-
-      const res = await fetch('http://localhost:5000/api/cars', {
-        method: 'POST',
-        body: form,
-      });
+const res = await fetch(`${API_URL}/api/cars`, {
+  method: 'POST',
+  body: form,
+});
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || 'Failed to add car');
 
