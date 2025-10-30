@@ -1,0 +1,119 @@
+.CarsPageContainer{
+     width: 80vw;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 5em 0 ;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    gap: 3em;
+}
+
+/*PICK*/
+.pickDropContainer{
+    width: 100%;
+    height: 7.5em;
+    background-color: #FFFFFF;
+    border-radius: 0.5em;
+    padding: 1em 1em;
+}
+
+.icon{
+    color: #3563E9;
+}
+
+.pickDropTitle{
+    display: flex;
+    margin-bottom: 1em;
+}
+
+.pickers{
+    display: flex;
+    align-items: center;
+    gap: 4em;
+    padding: 0em 1.1em;
+}
+.pick{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+.pick label{
+    font-size: 0.9em;
+}
+
+.pick input{
+outline: none;
+border: none;
+width: 2em;
+}
+.pick select{
+    border: none;
+}
+
+.pickContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    position: relative;
+}
+.flip{
+    width:4em ;
+    height: 4em;
+    border-radius: 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: #3563E9;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media (min-width:900px) {
+    .pickContainer{
+        flex-direction: row;
+        
+    }
+}
+/*CarCon*/
+.carContainer{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5em;
+    gap: 2em;
+}
+
+/*Filter*/
+.filterContainer
+{
+    width:22em ;
+    height: 80vh;
+    background-color: #FFFFFF;
+    padding: 2em ;
+}
+
+.filters{
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.fliterType p{
+    margin-bottom: 2em;
+}
+
+.filter{
+    margin-bottom: 0.5em;
+}
+
+@media (max-width:600px) {
+    .filterContainer{
+        display: none;
+    }
+}
