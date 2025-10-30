@@ -3,14 +3,25 @@ node_modules
 client/node_modules
 server/node_modules
 
-# build output
+# build
 client/build
+dist
 
-# environment files
+# env files
 .env
 client/.env
 server/.env
 
-# OS files
+# uploads
+uploads/
+server/uploads/
+
+# logs
+*.log
+logs/
+
+# system / editor
 .DS_Store
 Thumbs.db
+.vscode/
+.idea/
