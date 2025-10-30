@@ -54,19 +54,19 @@ It allows users to browse, filter, and rent cars online — with a secure backen
 ## 🖼️ Screenshots
 
 ### 🏠 Homepage & Cars Page
-![DriveSpot Homepage](assets/drive-spot.vercel.app_1.png)
+![DriveSpot Homepage](https://raw.githubusercontent.com/z7zeus7z/DriveSpot/refs/heads/main/assets/drive-spot.vercel.app_%201.png)
 
 ### 🚘 Car Details Page & Filters
-![DriveSpot Car Details](assets/drive-spot.vercel.app_2.png)
+![DriveSpot Car Details](https://raw.githubusercontent.com/z7zeus7z/DriveSpot/refs/heads/main/assets/drive-spot.vercel.app_%202.png)
 
 ### 🔐 Login Page
-![DriveSpot Login](assets/drive-spot.vercel.app_3.png)
+![DriveSpot Login](https://raw.githubusercontent.com/z7zeus7z/DriveSpot/refs/heads/main/assets/drive-spot.vercel.app_%203.png)
 
 ### 🧾 Admin – List Car *(Restricted)*
-![Admin List Car](assets/drive-spot.vercel.app_4.png)
+![Admin List Car](https://raw.githubusercontent.com/z7zeus7z/DriveSpot/refs/heads/main/assets/drive-spot.vercel.app_%204.png)
 
 ### 📁 Admin – Manage Cars *(Restricted)*
-![Admin Manage Cars](assets/drive-spot.vercel.app_5.png)
+![Admin Manage Cars](https://raw.githubusercontent.com/z7zeus7z/DriveSpot/refs/heads/main/assets/drive-spot.vercel.app_%205.png)
 
 ---
 
