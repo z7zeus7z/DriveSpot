@@ -65,7 +65,7 @@ It allows users to browse, filter, and rent cars online — with a secure backen
 ### 🧾 Admin – List Car *(Restricted)*
 ![Admin List Car](assets/drive-spot.vercel.app_4.png)
 
-### 🗂️ Admin – Manage Cars *(Restricted)*
+### 📁 Admin – Manage Cars *(Restricted)*
 ![Admin Manage Cars](assets/drive-spot.vercel.app_5.png)
 
 ---
