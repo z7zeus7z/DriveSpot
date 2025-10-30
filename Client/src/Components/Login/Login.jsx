@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import style from '../../Style/Auth.module.css'
+const API_URL = import.meta.env.VITE_API_URL;
 const Login = (props) => {
     const {setUser,toggleForm}= props;
     const[formData,setFormData]= useState({
@@ -17,14 +18,14 @@ const Login = (props) => {
     const handleSubmit= async (e)=>{
       e.preventDefault();
       try{
-        const response = await fetch('http://localhost:5000/api/users/login',{
-          method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: formData.email,
-          password: formData.password,
-        }),
-        });
+       const response = await fetch(`${API_URL}/api/users/login`, {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    email: formData.email,
+    password: formData.password,
+  }),
+});
         const data = await response.json();
         if(!response.ok) throw new Error(data.message||'Login failed');
         setUser(data.user);

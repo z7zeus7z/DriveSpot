@@ -7,6 +7,7 @@ import ScrollToTop from './Components/ScrollToTop';
 import Auth from './Components/Login/Auth';
 import AdminDash from './Components/AdminDash/AdminDash';
 import { useEffect, useState } from 'react';
+const API_URL = import.meta.env.VITE_API_URL;
 function App() {
       const [user,setUser] = useState(null);
       const[cars,setCars] = useState([]);
@@ -26,7 +27,7 @@ function App() {
       useEffect(()=>{
         const fetchCars = async ()=>{
           try{
-            const res = await fetch('http://localhost:5000/api/cars');
+            const res = await fetch(`${API_URL}/api/cars`);
             const data = await res.json();
             setCars(data);
           }
