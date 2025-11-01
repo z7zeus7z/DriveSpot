@@ -28,15 +28,15 @@ const Home = ({ cars }) => {
     dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 1,      // ✅ show one slide by default (fixes Safari)
+    slidesToShow: 4,     // ✅ 4 by default for desktop
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
     responsive: [
-      { breakpoint: 768, settings: { slidesToShow: 1 } },
-      { breakpoint: 1024, settings: { slidesToShow: 2 } },
-      { breakpoint: 1280, settings: { slidesToShow: 3 } },
-      { breakpoint: 1600, settings: { slidesToShow: 4 } },
+      { breakpoint: 1600, settings: { slidesToShow: 4 } },  // big screens
+      { breakpoint: 1280, settings: { slidesToShow: 3 } },  // laptops
+      { breakpoint: 1024, settings: { slidesToShow: 2 } },  // tablets landscape
+      { breakpoint: 768,  settings: { slidesToShow: 1 } },  // tablets portrait & phones
     ],
   };
 
