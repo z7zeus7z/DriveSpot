@@ -14,12 +14,12 @@ const CarDetailsPage = ({ cars }) => {
 
   useEffect(() => {
     if (car && car.images && car.images.length > 0) {
-      setSelectedImage(`${API_URL}/uploads/cars/${car.images[0]}`);
+      setSelectedImage(`${API_URL}/public/cars/${car.images[0]}`);
     }
   }, [car]);
 
   const handleImageClick = (img) => {
-    setSelectedImage(`${API_URL}/uploads/cars/${img}`);
+    setSelectedImage(`${API_URL}/public/cars/${img}`);
   };
 
   const openFullscreen = () => setIsFullscreen(true);
@@ -55,7 +55,7 @@ const CarDetailsPage = ({ cars }) => {
                     style={{ cursor: 'pointer' }}
                   >
                     <img
-                      src={`${API_URL}/uploads/cars/${img}`}
+                      src={`${API_URL}/public/cars/${img}`}
                       alt={car.model}
                     />
                   </div>
