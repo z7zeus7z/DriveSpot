@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css";
+
 import style from '../../Style/Home.module.css';
 import Footer from '../Footer/Footer';
 import AdCard from './AdCard';
@@ -8,44 +6,16 @@ import CarCard from '../CarCard/CarCard';
 import PickDrop from './PickDrop';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRepeat } from "@fortawesome/free-solid-svg-icons";
-import Slider from "react-slick";
 import adCard1img from '../../assets/cardbg.png';
 import adCard2img from '../../assets/adCar2.png';
 import { Link } from 'react-router-dom';
 
 const Home = ({ cars }) => {
-  const [sliderReady, setSliderReady] = useState(false);
+  
 
-  useEffect(() => {
-    let count = 0;
-    const resizeFix = setInterval(() => {
-      window.dispatchEvent(new Event('resize'));
-      count++;
-      if (count >= 5) {
-        clearInterval(resizeFix);
-        setSliderReady(true);
-      }
-    }, 250);
-    return () => clearInterval(resizeFix);
-  }, []);
 
-  const settings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    responsive: [
-      { breakpoint: 1600, settings: { slidesToShow: 4 } },
-      { breakpoint: 1280, settings: { slidesToShow: 3 } },
-      { breakpoint: 1024, settings: { slidesToShow: 2 } },
-      { breakpoint: 768, settings: { slidesToShow: 1, centerMode: true, centerPadding: '0px' } },
-      { breakpoint: 480, settings: { slidesToShow: 1, centerMode: true, centerPadding: '0px' } },
-    ],
-  };
 
+ 
   return (
     <>
       <div className={style.homeContainer}>
@@ -70,23 +40,7 @@ const Home = ({ cars }) => {
           <PickDrop />
         </div>
 
-        <div className={style.popularCars}>
-          <div className={style.title}>
-            <h5>Popular Car</h5>
-            <Link to='/cars'>View All</Link>
-          </div>
-          <div className={style.cars}>
-            <div className={style.slider} style={{ opacity: sliderReady ? 1 : 0, transition: 'opacity 0.3s' }}>
-              {sliderReady && (
-                <Slider {...settings}>
-                  {cars.slice(0, 5).map(car => (
-                    <CarCard key={car._id} car={car} />
-                  ))}
-                </Slider>
-              )}
-            </div>
-          </div>
-        </div>
+        
 
         <div className={style.title}>
           <h5>Recommendation Cars</h5>
