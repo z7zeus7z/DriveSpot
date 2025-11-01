@@ -17,26 +17,32 @@ const Home = ({ cars }) => {
   const [sliderReady, setSliderReady] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    let count = 0;
+    const resizeFix = setInterval(() => {
       window.dispatchEvent(new Event('resize'));
-      setSliderReady(true);
-    }, 400);
-    return () => clearTimeout(timer);
+      count++;
+      if (count >= 5) {
+        clearInterval(resizeFix);
+        setSliderReady(true);
+      }
+    }, 250);
+    return () => clearInterval(resizeFix);
   }, []);
 
   const settings = {
     dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 4,     // ✅ 4 by default for desktop
+    slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
     responsive: [
-      { breakpoint: 1600, settings: { slidesToShow: 4 } },  // big screens
-      { breakpoint: 1280, settings: { slidesToShow: 3 } },  // laptops
-      { breakpoint: 1024, settings: { slidesToShow: 2 } },  // tablets landscape
-      { breakpoint: 768,  settings: { slidesToShow: 1 } },  // tablets portrait & phones
+      { breakpoint: 1600, settings: { slidesToShow: 4 } },
+      { breakpoint: 1280, settings: { slidesToShow: 3 } },
+      { breakpoint: 1024, settings: { slidesToShow: 2 } },
+      { breakpoint: 768, settings: { slidesToShow: 1, centerMode: true, centerPadding: '0px' } },
+      { breakpoint: 480, settings: { slidesToShow: 1, centerMode: true, centerPadding: '0px' } },
     ],
   };
 
