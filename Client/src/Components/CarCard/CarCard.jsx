@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faGasPump,faGears,faPerson  } from '@fortawesome/free-solid-svg-icons'; 
 import {Link} from 'react-router-dom'
 const API_URL = import.meta.env.VITE_API_URL;
-console.log("API_URL from env =>", API_URL);
+
 
 const CarCard = (props) => {
     const {car} = props;
