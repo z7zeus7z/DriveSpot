@@ -28,6 +28,8 @@ mongoose.connect(process.env.MONGO_URL)
 app.use('/api/users',userRoutes);
 app.use('/api/cars', carRoutes);
 app.use('/uploads', express.static(path.resolve(__dirname, 'uploads')));
+app.use('/public', express.static(path.resolve(__dirname, 'public')));
+
 
 app.get('/test-upload', (req, res) => {
   res.send('Uploads folder is configured!');
