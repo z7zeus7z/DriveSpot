@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import style from '../../Style/Home.module.css';
@@ -16,7 +16,7 @@ const Home = (props) => {
   const {cars} = props;
   let settings = {
   dots: true,
-  infinite: false, // prevent looping overflow on small screens
+  infinite: false, 
   speed: 500,
   slidesToShow: 4,
   slidesToScroll: 1,
@@ -24,33 +24,41 @@ const Home = (props) => {
   autoplaySpeed: 2000,
   responsive: [
     {
-      breakpoint: 1280, // laptops
+      breakpoint: 1280, 
       settings: {
         slidesToShow: 3,
       },
     },
     {
-      breakpoint: 1024, // tablets landscape
+      breakpoint: 1024,
       settings: {
         slidesToShow: 2,
       },
     },
     {
-      breakpoint: 768, // tablets portrait
+      breakpoint: 768, 
       settings: {
         slidesToShow: 1,
       },
     },
     {
-      breakpoint: 480, // phones
+      breakpoint: 480, 
       settings: {
         slidesToShow: 1,
         centerMode: true,
-        centerPadding: "0px", // make it fit nicely
+        centerPadding: "0px", 
       },
     },
   ],
 };
+ useEffect(() => {
+    
+    const timer = setTimeout(() => {
+      window.dispatchEvent(new Event('resize'));
+    }, 600);
+
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <>
         <div className={style.homeContainer}>
