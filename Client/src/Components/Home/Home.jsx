@@ -14,14 +14,19 @@ import adCard2img from '../../assets/adCar2.png';
 import { Link } from 'react-router-dom';
 
 const Home = ({ cars }) => {
-  const [showSlider, setShowSlider] = useState(false);
+  const [sliderReady, setSliderReady] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowSlider(true);
+    let count = 0;
+    const fixSafariLayout = setInterval(() => {
       window.dispatchEvent(new Event('resize'));
-    }, 500);
-    return () => clearTimeout(timer);
+      count++;
+      if (count > 5) {
+        clearInterval(fixSafariLayout);
+        setSliderReady(true);
+      }
+    }, 300);
+    return () => clearInterval(fixSafariLayout);
   }, []);
 
   const settings = {
@@ -70,8 +75,8 @@ const Home = ({ cars }) => {
             <Link to='/cars'>View All</Link>
           </div>
           <div className={style.cars}>
-            <div className={style.slider}>
-              {showSlider && (
+            <div className={style.slider} style={{ opacity: sliderReady ? 1 : 0, transition: 'opacity 0.4s' }}>
+              {sliderReady && (
                 <Slider {...settings}>
                   {cars.slice(0, 5).map(car => (
                     <CarCard key={car._id} car={car} />
