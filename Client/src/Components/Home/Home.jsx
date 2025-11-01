@@ -17,31 +17,26 @@ const Home = ({ cars }) => {
   const [sliderReady, setSliderReady] = useState(false);
 
   useEffect(() => {
-    let count = 0;
-    const fixSafariLayout = setInterval(() => {
+    const timer = setTimeout(() => {
       window.dispatchEvent(new Event('resize'));
-      count++;
-      if (count > 5) {
-        clearInterval(fixSafariLayout);
-        setSliderReady(true);
-      }
-    }, 300);
-    return () => clearInterval(fixSafariLayout);
+      setSliderReady(true);
+    }, 400);
+    return () => clearTimeout(timer);
   }, []);
 
   const settings = {
     dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 1,      // ✅ show one slide by default (fixes Safari)
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
     responsive: [
-      { breakpoint: 1280, settings: { slidesToShow: 3 } },
-      { breakpoint: 1024, settings: { slidesToShow: 2 } },
       { breakpoint: 768, settings: { slidesToShow: 1 } },
-      { breakpoint: 480, settings: { slidesToShow: 1, centerMode: true, centerPadding: "0px" } },
+      { breakpoint: 1024, settings: { slidesToShow: 2 } },
+      { breakpoint: 1280, settings: { slidesToShow: 3 } },
+      { breakpoint: 1600, settings: { slidesToShow: 4 } },
     ],
   };
 
@@ -75,7 +70,7 @@ const Home = ({ cars }) => {
             <Link to='/cars'>View All</Link>
           </div>
           <div className={style.cars}>
-            <div className={style.slider} style={{ opacity: sliderReady ? 1 : 0, transition: 'opacity 0.4s' }}>
+            <div className={style.slider} style={{ opacity: sliderReady ? 1 : 0, transition: 'opacity 0.3s' }}>
               {sliderReady && (
                 <Slider {...settings}>
                   {cars.slice(0, 5).map(car => (
