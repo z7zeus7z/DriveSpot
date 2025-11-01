@@ -15,22 +15,28 @@ import {Link} from 'react-router-dom'
 const Home = (props) => {
   const {cars} = props;
   let settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    autoplay: true,
+  dots: true,
+  infinite: false, // prevent looping overflow on small screens
+  speed: 500,
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  autoplay: true,
   autoplaySpeed: 2000,
   responsive: [
     {
-      breakpoint: 1024, // screens smaller than 1024px
+      breakpoint: 1280, // laptops
+      settings: {
+        slidesToShow: 3,
+      },
+    },
+    {
+      breakpoint: 1024, // tablets landscape
       settings: {
         slidesToShow: 2,
       },
     },
     {
-      breakpoint: 768, // tablets
+      breakpoint: 768, // tablets portrait
       settings: {
         slidesToShow: 1,
       },
@@ -39,10 +45,12 @@ const Home = (props) => {
       breakpoint: 480, // phones
       settings: {
         slidesToShow: 1,
+        centerMode: true,
+        centerPadding: "0px", // make it fit nicely
       },
     },
   ],
-  }
+};
   return (
     <>
         <div className={style.homeContainer}>
