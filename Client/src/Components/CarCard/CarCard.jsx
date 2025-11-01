@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faGasPump,faGears,faPerson  } from '@fortawesome/free-solid-svg-icons'; 
 import {Link} from 'react-router-dom'
 const API_URL = import.meta.env.VITE_API_URL;
+console.log("API_URL from env =>", API_URL);
+
 const CarCard = (props) => {
     const {car} = props;
 
@@ -18,7 +20,8 @@ const CarCard = (props) => {
                 
             </div>
             <div className={style.carImg}>
-                <img src={`${API_URL}/uploads/cars/${car.images[0]}`} alt={car.model} />
+                <img src={`${API_URL}/public/cars/${car.images[0]}`} alt={car.model} />
+
             </div>
             <div className={style.carInfo}>
                 <div className={style.info}><FontAwesomeIcon icon={faGasPump}/><p>{car.type}</p></div>
